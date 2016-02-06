@@ -27,6 +27,7 @@ app.use(serveStatic(__dirname + '/public'));
 
 app.get('/', routes.index);
 app.get('/quote', routes.quote);
+app.post('/quote', routes.quote);
 
 // load errorHandler after routes
 
