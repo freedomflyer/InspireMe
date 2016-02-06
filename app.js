@@ -25,7 +25,6 @@ app.use(serveStatic(__dirname + '/public'));
 
 // Routes
 
-app.get('/', routes.index);
 app.get('/quote', routes.quote);
 app.post('/quote', routes.quote);
 
