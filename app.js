@@ -11,7 +11,7 @@ var express = require('express')
 , serveStatic = require('serve-static')
 , errorHandler = require('errorhandler');
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
+//mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
 
 var app = express(); //module.exports = express.createServer();
 
