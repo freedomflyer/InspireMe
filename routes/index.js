@@ -75,8 +75,8 @@ exports.quote = function(req, res) {
 
 
     res.send({
+        "version": "1.0",
         "response": {
-            "version": "1.0",
             "outputSpeech": {
             "type": "PlainText",
             "text": quotes[getRandomInt(0, quotes.length-1)]
