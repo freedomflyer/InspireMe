@@ -61,7 +61,7 @@ alexaApp.intent('RandomQuoteIntent',
         quoteText += quotes[getRandomInt(0, quotes.length-1)] + ".";
     }
 
-    response.say("Here are  " + numquotes + "quotes. " + quoteText);
+    response.say("Here are  " + numquotes + " quotes. " + quoteText);
   }
 );
 
