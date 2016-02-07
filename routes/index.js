@@ -54,8 +54,14 @@ alexaApp.intent('RandomQuoteIntent',
     utterances: ["give me {1-100|number} random quotes"]
   },
   function(request,response) {
-    var number = request.slot('number');
-    response.say("You asked for the number " + number);
+    var numquotes = request.slot('number');
+    var quoteText = "";
+
+    for(var i=0; i < numquotes; i++) {
+        quoteText += quotes[getRandomInt(0, quotes.length-1)] + ".";
+    }
+
+    response.say("Here are  " + numquotes + "quotes. " + quoteText);
   }
 );
 
