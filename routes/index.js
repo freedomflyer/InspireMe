@@ -50,12 +50,12 @@ function getRandomInt(min, max) {
 
 alexaApp.intent('RandomQuoteIntent',
   {
-    "slots":{"number":"NUMBER"}
-	,"utterances":[ "give me {1-100|number} random quotes" ]
+    slots: {number:"NUMBER"},
+    utterances: ["give me {1-100|number} random quotes"]
   },
   function(request,response) {
     var number = request.slot('number');
-    response.say("You asked for the number "+number);
+    response.say("You asked for the number " + number);
   }
 );
 
