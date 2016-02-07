@@ -67,24 +67,24 @@ alexaApp.intent('RandomQuoteIntent',
 
 exports.quote = function(req, res) {
 
-    // alexaApp.request(req.body)        // connect express to alexa-app
-    //     .then(function(response) { // alexa-app returns a promise with the response
-    //         console.log(response);
-    //         res.json(response);      // stream it to express' output
-    // });
-
-
-    res.send({
-        "version": "1.0",
-        "response": {
-            "outputSpeech": {
-            "type": "PlainText",
-            "text": quotes[getRandomInt(0, quotes.length-1)]
-            },
-            "shouldEndSession": true
-        },
-
+    alexaApp.request(req.body)        // connect express to alexa-app
+        .then(function(response) { // alexa-app returns a promise with the response
+            response.version = "1.0";
+            res.json(response);      // stream it to express' output
     });
+
+
+    // res.send({
+    //     "version": "1.0",
+    //     "response": {
+    //         "outputSpeech": {
+    //         "type": "PlainText",
+    //         "text": quotes[getRandomInt(0, quotes.length-1)]
+    //         },
+    //         "shouldEndSession": true
+    //     },
+
+    // });
 }
 
 
