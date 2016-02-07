@@ -76,12 +76,14 @@ exports.quote = function(req, res) {
 
     res.send({
         "response": {
+            "version": "1.0",
             "outputSpeech": {
             "type": "PlainText",
             "text": quotes[getRandomInt(0, quotes.length-1)]
             },
             "shouldEndSession": true
-        }
+        },
+
     });
 }
 
