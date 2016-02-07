@@ -48,29 +48,34 @@ function getRandomInt(min, max) {
 }
 
 
+alexaApp.intent('RandomQuoteIntent',
+  {
+    "slots":{"number":"NUMBER"}
+	,"utterances":[ "give me {1-100|number} random quotes" ]
+  },
+  function(request,response) {
+    var number = request.slot('number');
+    response.say("You asked for the number "+number);
+  }
+);
+
 exports.quote = function(req, res) {
 
-    // alexaApp.request(req.body)        // connect express to alexa-app
-    //     .then(function(response) { // alexa-app returns a promise with the response
-    //         res.json(response);      // stream it to express' output
-    // });
-
-
-    res.send({
-        "response": {
-            "outputSpeech": {
-            "type": "PlainText",
-            "text": quotes[getRandomInt(0, quotes.length-1)]
-            },
-            "shouldEndSession": false
-        },
-        "sessionAttributes": {
-            "intentSequence": "createEvent;duration;yes",
-            "forDate": "2015-06-04",
-            "startTime": "14:00",
-            "duration": "PT45M",
-        }
+    alexaApp.request(req.body)        // connect express to alexa-app
+        .then(function(response) { // alexa-app returns a promise with the response
+            res.json(response);      // stream it to express' output
     });
+
+
+    // res.send({
+    //     "response": {
+    //         "outputSpeech": {
+    //         "type": "PlainText",
+    //         "text": quotes[getRandomInt(0, quotes.length-1)]
+    //         },
+    //         "shouldEndSession": true
+    //     }
+    // });
 }
 
 
