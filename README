@@ -1,7 +1,5 @@
 Boilerplate node.js app which can run on heroku.
 
-uses express, mongo, and connect-auth
-
 run the following commands:
 
 npm install -d
